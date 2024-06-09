@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <style>
+         body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+      margin-left: 50px;
+      vertical-align: middle;
+    }
+      </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1><%= questions[0].topicName %></h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Questions</th>
+          <th>Coding Challenge</th>
+          <th>YouTube Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% questions.forEach((question, index) => { %>
+           
+            <% question.questions.forEach((q,i)=>{%>
+                <tr>
+            <td><%= i + 1 %></td>
+            <td><%= q.Problem %></td>
+            <td><a href="<%= q.URL %>" target="_blank"><img class="icon" src="https://cdn3.vectorstock.com/i/1000x1000/56/47/code-slash-icon-line-isolated-on-white-background-vector-45265647.jpg"alt="GFG"></a></td>
+            <td><a href="<%= q.URL2 %>" target="_blank"><img class="icon" src="data:image/png;base64,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" alt="Youtube"></a></td>
+          </tr>
+           <%})%> 
+          
+        <% }); %>
+      </tbody>
+    </table>
+    <!-- <% for(let question of questions){ %>
+        <div class="main">
+           <div class="dsa">
+            <h1><a href=""><%= question.questions[0].Topic %>s : <%= question.questions.length %> </a></h1> 
+           <% for(let q of question.questions){ %>
+            <ul><li><h3><%= q.Problem %></h3></li></ul>
+            <% } %>
+        
+           </div>
+        </div>      
+       
+    <% } %> -->
+    </div>
+</body>
+</html>

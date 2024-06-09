@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/css/landingPageStyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-toggle">
+                <button id="login-toggle" class="active" onclick="showLogin()">Login</button>
+                <button id="signup-toggle" onclick="showSignup()">Sign Up</button>
+            </div>
+            <div class="form-content">
+                <form id="login-form" class="form active"  action="/dsa/login" method="post">
+                    <h2>Login</h2>
+                    <input type="email" placeholder="Email" name="email" required>
+                    <div class="password-container">
+                        <input type="password" placeholder="Password" id="login-password" name="password"  required>
+                        <span class="password-toggle" onclick="togglePassword('login-password', this)">👁️</span>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <form id="signup-form" class="form" action="/dsa/signup" method="post">
+                    <h2>Sign Up</h2>
+                    <input type="text" placeholder="Username" name="username" required>
+                    <input type="email" placeholder="Email"  name="email" required>
+                    <div class="password-container">
+                        <input type="password" placeholder="Password" id="signup-password" name="password" required>
+                        <span class="password-toggle" onclick="togglePassword('signup-password', this)">👁️</span>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="JS/script.js"></script>
+</body>
+</html>
